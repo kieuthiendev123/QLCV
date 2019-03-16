@@ -1,0 +1,94 @@
+
+<div class="main-content" style="margin-top:30px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="red">
+                    <i class="material-icons">equalizer</i>
+                </div>
+                <div class="card-content" style="padding: 0;">
+                    <div class="form-group">
+                        <input style="width: 30%; margin-left: 70%;" placeholder="Tìm kiếm..." type="text" class="form-control" name="search" [(ngModel)]="obj_search.name"
+                            (ngModelChange)="search()">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <ngx-datatable class="material" [rows]="list_data" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+                        [limit]="5" style="width:100%">
+                        <ngx-datatable-column name="STT khám" sortable="true" [width]="80" prop="number">
+                          <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                              {{column.name}}
+                          </ng-template>
+                          <ng-template let-row="row" let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                              {{value}}
+                          </ng-template>
+                      </ngx-datatable-column>
+                        <ngx-datatable-column name="Mã bệnh nhân" sortable="true" prop="code">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Tên bệnh nhân" sortable="true" prop="fullName">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                <b>{{column.name}}</b>
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Ngày khám" sortable="true" prop="dayOfExamination">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value | date:'dd/MM/yyyy'}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Trạng thái" sortable="true" prop="status">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <span *ngIf="value === 1" style="padding: 6px 10px; background: #c34438;color:white;border-radius: 15px;">Chờ khám</span>
+                                <span *ngIf="value === 2" style="padding: 6px 10px; background: #f5a623;color:white;border-radius: 15px;">Đang khám</span>
+                                <span *ngIf="value === 3" style="padding: 6px 10px; background: #3182b7;color:white;border-radius: 15px;">Đã khám</span>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Hành động" sortable="true" prop="id">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <span class="goi-kham" *ngIf="row.status !== 3" style="padding: 6px 10px;color:white; background: #c34438;" (click)="callKham(row)">Gọi khám</span>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <style>
+                            .goi-kham:hover{
+                                background: #c71c0d !important;
+                            }
+                        </style>
+                    </ngx-datatable>
+
+                    <!-- Modal Confirm Delete -->
+                    <bs-modal #confirmdeletemodal [backdrop]="'static'" [keyboard]="false">
+                        <bs-modal-body>
+                            <div class="container" style="padding: 10px 25px;width:100%;">
+                                Xác nhận xóa
+                            </div>
+                        </bs-modal-body>
+                        <bs-modal-footer>
+                            <div style="padding-right:40px;">
+                                <button type="button" class="btn btn-default-2" (click)="confirmdeletemodal.close()" style="margin-bottom:0;margin-right:10px;">Hủy bỏ</button>
+                                <button type="button" (click)="removeOK()" class="btn btn-primary">
+                                    Đồng ý </button>
+                            </div>
+                        </bs-modal-footer>
+                    </bs-modal>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

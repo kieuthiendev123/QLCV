@@ -1,0 +1,123 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="orange">
+                        <i class="material-icons">weekend</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Đặt khám</p>
+                        <h3 class="card-title">184</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons text-danger">add</i>
+                            <a href="#pablo">Đặt chỗ...</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="red">
+                        <i class="material-icons">equalizer</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Lượt khám</p>
+                        <h3 class="card-title">75.521</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">local_offer</i> Xem chi tiết
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="green">
+                        <i class="material-icons">store</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Doanh thu</p>
+                        <h3 class="card-title">$3,245</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">date_range</i> 1 tháng
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card card-stats">
+                    <div class="card-header" data-background-color="blue">
+                        <i class="material-icons">face</i>
+                    </div>
+                    <div class="card-content">
+                        <p class="category">Hồ sơ bệnh nhân</p>
+                        <h3 class="card-title">+245</h3>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            <i class="material-icons">update</i> Vừa cập nhập
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ngx-datatable class="material" [rows]="list_data" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+            [limit]="5" style="width:100%">
+            <ngx-datatable-column name="STT" sortable="true" [width]="10">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    {{column.name}}
+                </ng-template>
+                <ng-template let-row="row" let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                    {{rowIndex + 1}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Mã dự án" sortable="true" prop="codeProject">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    {{column.name}}
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Tên dự án" sortable="true" prop="nameProject">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    {{column.name}}
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Thời gian bắt đầu" sortable="true" prop="startDate">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    {{column.name}}
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Thời gian kết thúc" sortable="true" prop="endDate">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    {{column.name}}
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+
+            <ngx-datatable-column name="Ghi chú" sortable="true" prop="note">
+                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                    {{column.name}}
+                </ng-template>
+                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                    {{value}}
+                </ng-template>
+            </ngx-datatable-column>
+        </ngx-datatable>
+    </div>
+</div>

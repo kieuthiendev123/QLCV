@@ -1,0 +1,135 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU"
+    crossorigin="anonymous">
+
+<div class="item-detail">
+    <h3 class="text-detail">Detail</h3>
+    <div class="box-detail">
+        <div *ngFor='let item2 of list_detail'>
+            <div class="heder">
+                <span class="title-box">{{item2.nameCV}} \</span>
+                <span class="title-box code">{{item2.codeCV}}</span>              
+            </div>
+            <div class="context">
+                <h4>People</h4>
+                <p>Reporter : Phạm Tuấn Anh</p>
+                <p>Reporter : Đào Mạnh Hùng</p>
+                <h4>Dates</h4>
+                <p>Created :30/Jan/14 3:43 PM</p>
+                <p>Updated : 03/Feb/14 3:22 PM</p>
+                <h4>Development</h4>
+                
+            </div>
+        </div>
+    </div>
+</div>
+<div id="box">
+    <ul class="box-header">
+        <li>
+            <h3>To do</h3>
+        </li>
+        <li>
+            <h3 class="blue">In Progress</h3>
+        </li>
+        <li>
+            <h3 class="yellow">Test</h3>
+        </li>
+        <li>
+            <h3 class="green">Done</h3>
+        </li>
+    </ul>
+
+    <div class="box-wrapper">
+        <div id="idtodo" class='container box' [dragula]="MANY_ITEMS" [(dragulaModel)]='list_data'>
+            <div class="main-box" *ngFor='let item of list_data'  data-id="{{item.id}}" (click)="showDetail(item.id,item.pStatus)">
+                <div class="left">
+                    <span><i class="fas fa-code"></i></span> 
+                    <br>
+                    <span class="level" [style.color]="item.levelTask == 2 ? 'red':'#4caf50'"><i class="fas fa-arrow-up"></i></span>
+                </div>
+                <div class="content">
+                    <span class="title-box code">{{item.codeCV}}</span>
+                    <br>
+                    <span class="title-box">{{item.nameCV}}</span>
+                    <br>
+                </div>
+                <div class="right">
+                    <span class="img-box"><img src="../../../../wwwroot/assets/img/images.png" alt=""></span>
+                    <br>
+                    <span class="time-box"> {{item.timeTask}}</span>
+                </div>
+            </div>
+        </div>
+        <div id="idpro" class='container box' [dragula]="MANY_ITEMS" [(dragulaModel)]='list_data1'>
+            <div class="main-box" *ngFor='let item2 of list_data1' data-id="{{item2.id}}" (click)="showDetail(item2.id,item2.pStatus)">
+                <div>
+                    <div class="left">
+                        <span><i class="fas fa-code"></i></span>
+                        <br>
+                        <span class="level" [style.color]="item2.levelTask == 2 ? 'red':'#4caf50'"><i class="fas fa-arrow-up"></i></span>
+                    </div>
+                    <div class="content">
+                        <span class="title-box code">{{item2.codeCV}}</span>
+                        <br>
+                        <span class="title-box">{{item2.nameCV}}</span>
+                        <br>
+                    </div>
+                    <div class="right">
+                        <span class="img-box"><img src="../../../../wwwroot/assets/img/images.png" alt=""></span>
+                        <br>
+                        <span class="time-box"> {{item2.timeTask}}</span>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="idtest" class='container box' [dragula]="MANY_ITEMS" [(dragulaModel)]='list_data2'>
+            <div class="main-box" *ngFor='let item3 of list_data2' data-id="{{item3.id}}" (click)="showDetail(item3.id,item3.pStatus)">
+                <div>
+                    <div class="left">
+                        <span><i class="fas fa-code"></i></span>
+                        <br>
+                        <span class="level" [style.color]="item3.levelTask == 2 ? 'red':'#4caf50'"><i class="fas fa-arrow-up"></i></span>
+                    </div>
+                    <div class="content">
+                        <span class="title-box code">{{item3.codeCV}}</span>
+                        <br>
+                        <span class="title-box">{{item3.nameCV}}</span>
+                        <br>
+                    </div>
+                    <div class="right">
+                        <span class="img-box"><img src="../../../../wwwroot/assets/img/images.png" alt=""></span>
+                        <br>
+                        <span class="time-box"> {{item3.timeTask}}</span>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div id="iddone" class='container box' [dragula]="MANY_ITEMS" [(dragulaModel)]='list_data3'>
+            <div class="main-box" *ngFor='let item4 of list_data3' data-id="{{item4.id}}" (click)="showDetail(item4.id,item4.pStatus)">
+                <div>
+                    <div class="left">
+                        <span><i class="fas fa-code"></i></span>
+                        <br>
+                        <span class="level" [style.color]="item4.levelTask == 2 ? 'red':'#4caf50'"><i class="fas fa-arrow-up"></i></span>
+                    </div>
+                    <div class="content">
+                        <span class="title-box code">{{item4.codeCV}}</span>
+                        <br>
+                        <span class="title-box">{{item4.nameCV}}</span>
+                        <br>
+                    </div>
+                    <div class="right">
+                        <span class="img-box"><img src="../../../../wwwroot/assets/img/images.png" alt=""></span>
+                        <br>
+                        <span class="time-box"> {{item4.timeTask}}</span>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

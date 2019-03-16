@@ -1,0 +1,12 @@
+{
+    "notify": {
+        "ADD_SUCCESS": "Thêm dữ liệu thành công.",
+        "EDIT_SUCCESS": "Sửa dữ liệu thành công.",
+        "DELETE_SUCCESS": "Xóa dữ liệu thành công.",
+        "ADD_ERROR": "Thêm dữ liệu không thành công. Hãy thử lại!",
+        "EDIT_ERROR": "Sửa dữ liệu không thành công. Hãy thử lại!",
+        "DELETE_ERROR": "Xóa dữ liệu không thành công. Hãy thử lại!",
+        "ERROR_UNDEFINED": "Lỗi không xác định",
+        "SERVER_ERROR": "Không kết nối được với máy chủ. Hãy kiểm tra lại kết nối Internet."
+    }
+}

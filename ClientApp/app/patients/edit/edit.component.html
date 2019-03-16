@@ -1,0 +1,224 @@
+<div class="main-content" style="margin-top:30px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="blue" style="background: #3396da !important;">
+                    <i class="material-icons">accessibility</i>
+                </div>
+                <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+                    <div class="form-group">
+                        <span>Thông tin bệnh nhân</span>
+                    </div>
+                </div>
+                <div class="card-footer row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Tên bệnh nhân</label>
+                                <input class="form-control" maxlength="15" [(ngModel)]="model.fullName" name="fullName" required #fullName="ngModel" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Giới tính</label>
+                                <select class="browser-default form-control" [(ngModel)]="model.gender" name="gender" required #gender="ngModel">
+                                    <option [ngValue]="item.id" *ngFor="let item of list_gender">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Ngày sinh</label>
+                                <input class="form-control" type="number" [(ngModel)]="model.birthYear" name="birthYear" required #birthYear="ngModel" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-12">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Số điện thoại</label>
+                                <input class="form-control" maxlength="15" [(ngModel)]="model.phone" name="phone" required #phone="ngModel" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Thành phố</label>
+                                <select class="browser-default form-control" [(ngModel)]="model.city" name="city" required #city="ngModel">
+                                    <option [ngValue]="item.id" *ngFor="let item of list_city">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Quận/huyện</label>
+                                <select class="browser-default form-control" [(ngModel)]="model.district" name="district" required #district="ngModel">
+                                    <option [ngValue]="item.id" *ngFor="let item of list_district">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Phường/xã</label>
+                                <select class="browser-default form-control" [(ngModel)]="model.ward" name="ward" required #ward="ngModel">
+                                    <option [ngValue]="item.id" *ngFor="let item of list_ward">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-12">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Địa chỉ</label>
+                                <input class="form-control" maxlength="200" [(ngModel)]="model.address" name="address" required #address="ngModel" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="blue" style="background: #e84c3d !important;">
+                    <i class="material-icons">add_box</i>
+                </div>
+                <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+                    <div class="form-group">
+                        <span>Thông tin đợt khám</span>
+                    </div>
+                </div>
+                <div class="card-footer row">
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Ngày khám</label>
+                                <input type="date" class="form-control" [(ngModel)]="model.dayOfExamination" name="dayOfExamination" required #dayOfExamination="ngModel"
+                                />
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Lý do khám</label>
+                                <input class="form-control" [(ngModel)]="model.reason" name="Reason" required #Reason="ngModel" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-6">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Dịch vụ khám</label>
+                                <select class="browser-default form-control" [(ngModel)]="model.feeId" name="feeId" required #feeId="ngModel">
+                                    <option [ngValue]="item.id" *ngFor="let item of list_fee">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Chỉ định Công việc</label>
+                                <select class="browser-default form-control" [(ngModel)]="model.roomId" name="roomId" required #roomId="ngModel">
+                                    <option [ngValue]="item.id" *ngFor="let item of list_room">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="blue" style="background: #3396da !important;">
+                    <i class="material-icons">assignment_ind</i>
+                </div>
+                <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+                    <div class="form-group">
+                        <span>Thông tin thẻ BHTT</span>
+                        <div class="checkbox" style="position: absolute;top: -10px;left: 350px;">
+                            <label>
+                                <input [(ngModel)]="model.bhyt_date" type="checkbox" name="optionsCheckboxes">
+                                <b style="color:black;">Có thẻ BHYT</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer row" *ngIf="model.bhyt_date">
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Số thẻ BHYT</label>
+                                <input class="form-control" [(ngModel)]="model.insCode" name="insCode" #insCode="ngModel" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Ngày hiệu lực</label>
+                                <input type="date" class="form-control" [(ngModel)]="model.insStartDate" name="insStartDate" #insStartDate="ngModel" />
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Ngày hết hiệu lực</label>
+                                <input type="date" class="form-control" [(ngModel)]="model.insEndDate" name="insEndDate" #insEndDate="ngModel" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12">
+                        <div class="col-sm-4">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Ngày nộp thẻ</label>
+                                <input type="date" class="form-control" [(ngModel)]="model.insInputCard" name="insInputCard" #insInputCard="ngModel" />
+                            </div>
+                        </div>
+                        <div class="col-sm-8">
+                            <div class="form-group" style="width: 100%;padding: 0;">
+                                <label class="control-label">Nơi khám chữa bệnh ban đầu</label>
+                                <select class="browser-default form-control" [(ngModel)]="model.hospitalRegis" name="hospitalRegis" #hospitalRegis="ngModel">
+                                    <option [ngValue]="item.id" *ngFor="let item of list_city">{{item.name}}</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="blue" style="background: #e84c3d !important;">
+                    <i class="material-icons">create</i>
+                </div>
+                <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+                    <div class="form-group">
+                        <span>Thông tin phụ</span>
+                        <div class="checkbox" style="position: absolute;top: -10px;left: 350px;">
+                            <label>
+                                <input [(ngModel)]="model.extent_info" type="checkbox" name="optionsCheckboxes" checked>
+                                <b style="color:black;">Ẩn thông tin phụ</b>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer row">
+                </div>
+            </div>
+        </div>
+        <div class="row" style="text-align:right;">
+            <button class="btn btn-info" style="margin-right: 15px;" (click)="saveData()">THÊM</button>
+            <button class="btn btn-info" style="margin-right: 15px;" (click)="updateData()">SỬA</button>
+            <button class="btn btn-default" (click)="cancelSave()">HỦY BỎ</button>
+        </div>
+    </div>
+</div>
+<style>
+    .browser-default {
+        background-color: transparent;
+        width: 100%;
+        padding: 4px 0;
+        font-size: 14px;
+        color: black;
+        border: none;
+    }
+
+    select:focus {
+        outline: none
+    }
+</style>

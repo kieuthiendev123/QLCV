@@ -1,0 +1,920 @@
+<div class="main-content page-doctor-exam">
+  <div class="container-fluid">
+    <div class="row row-header">
+      <div class="col-sm-12">
+        <div class="col-sm-3">
+          <h4 *ngIf="step===0" style="margin-top:0;">
+            <b>BỆNH ÁN TỔNG HỢP</b>
+          </h4>
+          <a *ngIf="step > 0" (click)="step=0">
+            <i class="material-icons">navigate_before</i> Bệnh án
+          </a>
+        </div>
+        <div class="col-sm-2" style="padding: 0" (click)="changeStep(1)">
+          <span class="step-number " [ngClass]="{'active': step === 1}">1</span>
+          <span class="step-name" [ngClass]="{'active': step === 1}">KHÁM BỆNH</span>
+        </div>
+        <div class="col-sm-2" style="padding: 0" (click)="changeStep(2)">
+          <span class="step-number" [ngClass]="{'active': step === 2}">2</span>
+          <span class="step-name" [ngClass]="{'active': step === 2}">CẬN LÂM SÀNG</span>
+        </div>
+        <div class="col-sm-2" style="padding: 0" (click)="changeStep(3)">
+          <span class="step-number" [ngClass]="{'active': step === 3}">3</span>
+          <span class="step-name" [ngClass]="{'active': step === 3}">CHUẨN ĐOÁN</span>
+        </div>
+        <div class="col-sm-2" style="padding: 0" (click)="changeStep(4)">
+          <span class="step-number" [ngClass]="{'active': step === 4}">4</span>
+          <span class="step-name" [ngClass]="{'active': step === 4}">ĐIỀU TRỊ</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="row main" *ngIf="step === 0 || step === 1 || step === 2">
+      <!-- Bệnh án -->
+      <div *ngIf="step===0">
+        <h4 style="padding: 0 15px;">
+          <b>Thông tin bệnh nhân</b>
+        </h4>
+        <div class="col-sm-12" style="padding-bottom:15px;border-bottom: 1px solid #cecece;">
+          <div class="col-sm-2" style="padding: 0 3px;">
+            <div class="form-group">
+              <label class="label-control">Mã bệnh nhân</label>
+              <p>DC1009</p>
+            </div>
+          </div>
+          <div class="col-sm-2" style="padding: 0 3px;">
+            <div class="form-group">
+              <label class="label-control">Họ tên</label>
+              <p>Nguyễn Văn A</p>
+            </div>
+          </div>
+          <div class="col-sm-1" style="padding: 0 3px;">
+            <div class="form-group">
+              <label class="label-control">Tuổi</label>
+              <p>23</p>
+            </div>
+          </div>
+          <div class="col-sm-2" style="padding: 0 3px;">
+            <div class="form-group">
+              <label class="label-control">Giới tính</label>
+              <p>Nam</p>
+            </div>
+          </div>
+          <div class="col-sm-3" style="padding: 0 3px;">
+            <div class="form-group">
+              <label class="label-control">Ngày vào viện</label>
+              <p>01/11/2017 (23 ngày)</p>
+            </div>
+          </div>
+          <div class="col-sm-2" style="padding: 0 3px;">
+            <div class="form-group">
+              <label class="label-control">Địa chỉ</label>
+              <p>Gia Lộc, Hải Dương</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12" style="padding: 15px;">
+          <div class="col-sm-3 title-step-1">
+            <b>Hỏi bệnh</b>
+          </div>
+          <div class="col-sm-9 text-right">
+            <i class="material-icons" style="color: #cecece;margin-right: 10px;">create</i>
+            <i class="material-icons" style="color: #cecece;">clear</i>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Lý do khám</b>
+          </div>
+          <div class="col-sm-10" style="padding:0">Sốt, mệt mỏi, vàng da, vàng mắt</div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Bệnh sử</b>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <p>Ngày mùng 7 sau khi đi tập luyện về bệnh nhân thấy mệt mỏi, ăn ngủ kém, khó chịu, sau đó thấy sốt nhẹ, không
+              rét run, sốt liên tục trong vòng 3-4 ngày, đến ngày thứ 5 bệnh nhân thấy vàng mắt, vàng da, đi tiểu ít hơn
+              so với ngày thường, nước tiểu sẫm màu kèm mệt mỏi tăng lên.
+            </p>
+            <p>Bệnh nhân còn thấy đau tức ở vùng hạ sườn phải, khó tiêu, sợ mỡ, đi tiêu phân lỏng. Bệnh nhân đã điều trị tại
+              tuyến dưới 4 ngày, được truyền dịch thấy không đỡ nên sau đó được chuyển về A5/103 trong tình trạng tỉnh táo,
+              da niêm mạc vàng, khám có gan to 2cm dưới bờ sườn, mật độ mềm, bờ nhẵn. Bác sĩ điều trị chẩn đoán bệnh nhân
+              bị viêm gan virus B cấp. Bệnh nhân sau đó được điều trị bằng glucose 30% uống, vitamin nhóm B, C và nghỉ ngơi
+              tại giường. </p>
+            <p>Sau hai tuần điều trị, triệu chứng giảm dần, ngày thứ 15 của bệnh thì nước tiểu bệnh nhân trong như bình thường,
+              tiểu nhiều hơn. Hiện tại hết sốt, hết mệt, ăn ngủ tốt, còn đau tức nhẹ hạ sườn phải.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Tiền sử</b>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <p>
+              Bản thân: Bình thường, không bị vàng da vàng mắt. Không dị ứng thuốc. Không uống rượu bia hay hút thuốc lá.
+            </p>
+            <p>
+              Gia đình: Không ai mắc bệnh liên quan.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Khám bệnh</b>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Toàn thân:</b>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <p>
+              Bệnh nhân tỉnh, tiếp xúc tốt. Thể trạng trung bình, không sốt. Da niêm mạc không vàng. Hạch ngoại vi không sưng, tuyến giáp
+              không lớn. Không phù, không xuất huyết dưới da.
+            </p>
+            <p>
+              <span style="margin-right: 15px;">DHST: Mạch: 72 lần/phút</span>
+              <span>Nhiệt độ: 36,5 độ C</span>
+            </p>
+            <p>
+              <span style="margin-right: 15px;">Huyết áp: 130/70 mmHg</span>
+              <span>Nhịp thở: 20 lần/phút</span>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Tiêu hóa</b>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <p>
+              Không đau bụng, không buồn nôn, ăn uống tốt. Đại tiện phân bình thường, phân vàng.
+            </p>
+            <p>
+              Bụng mềm, không chướng, di động đều theo nhịp thở, gõ trong.
+            </p>
+            <p>
+              Gan mấp mé bờ sườn độ 1cm, mật độ mềm, bờ tù, ấn hơi tức.
+            </p>
+            <p>
+              Lách không lớn.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Các xét nghiệm</b>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <p>
+              * CTM: HC: 3,89 T/l; HST 144g/l
+            </p>
+            <p>
+              * Xét nghiệm men gan: Bệnh án viêm gan do virus B
+            </p>
+            <p>
+              * HBsAg (+); Anti HCV (-)
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Chuẩn đoán</b>
+          </div>
+          <div class="col-sm-10" style="padding: 0;">
+            <p>Viêm gan virus B cấp thể thông thường điển hình mức độ vừa giai đoạn lui bệnh</p>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Điều trị</b>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-12">
+            <p>
+              – Tiếp tục chế độ nghỉ ngơi tại giường và tránh làm công việc nặng.
+            </p>
+            <p>
+              – Dùng glucose đường uống + vitamin B, C
+            </p>
+            <p>
+              – Chế độ ăn: tăng đường, đạm, ăn nhiều hoa quả và giảm mỡ
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12 title-step-1">
+          <div class="col-sm-2">
+            <b>Ảnh đính kèm</b>
+          </div>
+        </div>
+        <div class="col-sm-12">
+          <div class="col-sm-4">
+            <img style="width: 100%;height: 150px;" src="http://benhvienthucuc.vn/wp-content/uploads/2016/09/chup-x-quang-co-anh-huong-toi-suc-khoe-khong.jpg"
+            />
+          </div>
+          <div class="col-sm-4">
+            <img style="width: 100%;height: 150px;" src="http://healthplus.vn/Images/Uploaded/Share/2014/02/19/20140219X-quang.jpg" />
+          </div>
+          <div class="col-sm-4">
+            <img style="width: 100%;height: 150px;" src="http://sohanews.sohacdn.com/zoom/640_360/2016/photo-6-1478404573221-0-0-311-500-crop-1478404788089.png"
+            />
+          </div>
+        </div>
+      </div>
+      <!-- End Bệnh án -->
+
+      <!-- Khám bệnh -->
+      <div *ngIf="step===1">
+        <div class="row">
+          <div class="card card-stats">
+            <div class="card-header" data-background-color="blue" style="background: #e84c3d !important;">
+              <i class="material-icons">accessibility</i>
+            </div>
+            <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+              <div class="form-group">
+                <span>Thông tin bệnh nhân</span>
+              </div>
+            </div>
+            <div class="card-footer row">
+              <h4 style="padding: 0 15px;">
+                <b>Thông tin bệnh nhân</b>
+              </h4>
+              <div class="col-sm-12" style="padding-bottom:15px;border-bottom: 1px solid #cecece;">
+                <div class="col-sm-2" style="padding: 0 3px;">
+                  <div class="form-group">
+                    <label class="label-control">Mã bệnh nhân</label>
+                    <p>DC1009</p>
+                  </div>
+                </div>
+                <div class="col-sm-2" style="padding: 0 3px;">
+                  <div class="form-group">
+                    <label class="label-control">Họ tên</label>
+                    <p>Nguyễn Văn A</p>
+                  </div>
+                </div>
+                <div class="col-sm-1" style="padding: 0 3px;">
+                  <div class="form-group">
+                    <label class="label-control">Tuổi</label>
+                    <p>23</p>
+                  </div>
+                </div>
+                <div class="col-sm-2" style="padding: 0 3px;">
+                  <div class="form-group">
+                    <label class="label-control">Giới tính</label>
+                    <p>Nam</p>
+                  </div>
+                </div>
+                <div class="col-sm-3" style="padding: 0 3px;">
+                  <div class="form-group">
+                    <label class="label-control">Ngày vào viện</label>
+                    <p>01/11/2017 (23 ngày)</p>
+                  </div>
+                </div>
+                <div class="col-sm-2" style="padding: 0 3px;">
+                  <div class="form-group">
+                    <label class="label-control">Địa chỉ</label>
+                    <p>Gia Lộc, Hải Dương</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="card card-stats">
+            <div class="card-header" data-background-color="blue" style="background: #e84c3d !important;">
+              <i class="material-icons">add_box</i>
+            </div>
+            <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+              <div class="form-group">
+                <span>Hỏi bệnh</span>
+              </div>
+            </div>
+            <div class="card-footer row">
+              <div class="col-sm-12" style="margin: 10px 0;">
+                <div class="col-sm-2">
+                  <b>Lý do khám</b>
+                </div>
+                <div class="col-sm-10">
+                  <p>Sốt, mệt mỏi, vàng da, vàng mắt</p>
+                </div>
+              </div>
+              <div class="col-sm-12" style="margin: 10px 0;">
+                <div class="col-sm-2">
+                  <b>Bệnh sử</b>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- End Khám bệnh -->
+
+      <!-- Cận lâm sàng -->
+      <div *ngIf="step===2">
+        <div class="row">
+          <div class="card card-stats">
+            <div class="card-header" data-background-color="blue" style="background: #e84c3d !important;">
+              <i class="material-icons">accessibility</i>
+            </div>
+            <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+              <div class="form-group">
+                <span>Chỉ định cận lâm sàng</span>
+              </div>
+            </div>
+            <div class="card-footer row">
+              <div class="col-sm-12">
+                <div class="col-sm-12">
+                  <div class="form-group" style="width: 100%;padding: 0;">
+                    <label class="control-label">Chuẩn đoán ban đầu</label>
+                    <input class="form-control" />
+                  </div>
+                </div>
+                <div class="col-sm-12">
+                  <ngx-datatable class="material" [rows]="list_cls" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+                    [limit]="5" style="width:100%">
+                    <ngx-datatable-column name="STT" sortable="true" [width]="80" prop="number">
+                      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                        {{column.name}}
+                      </ng-template>
+                      <ng-template let-row="row" let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                        {{rowIndex+1}}
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Cận lâm sàng đã chỉ định" sortable="true" prop="ClsName">
+                      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                        {{column.name}}
+                      </ng-template>
+                      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        {{value}}
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Trạng thái" sortable="true" prop="Status">
+                      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                        <b>{{column.name}}</b>
+                      </ng-template>
+                      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        <span *ngIf="value === 0" style="padding: 3px 5px; border-radius:8px;color:white;background:grey;">Chưa gửi</span>
+                        <span *ngIf="value === 1" style="padding: 3px 5px; border-radius:8px;color:white;background:orange;">Chờ kết quả</span>
+                        <span *ngIf="value === 2" style="padding: 3px 5px; border-radius:8px;color:white;background:green;">Đã xong</span>
+                      </ng-template>
+                    </ngx-datatable-column>
+                    <ngx-datatable-column name="Action" sortable="true" prop="Id">
+                      <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+
+                      </ng-template>
+                      <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                        <span>
+                          <i class="fa fa-remove" (click)="removeCls(value)"></i>
+                        </span>
+                      </ng-template>
+                    </ngx-datatable-column>
+                  </ngx-datatable>
+
+                  <!-- Modal Confirm Delete -->
+                  <bs-modal #confirmdeletemodal [backdrop]="'static'" [keyboard]="false">
+                    <bs-modal-body>
+                      <div class="container" style="padding: 10px 25px;width:100%;">
+                        Xác nhận xóa
+                      </div>
+                    </bs-modal-body>
+                    <bs-modal-footer>
+                      <div style="padding-right:40px;">
+                        <button type="button" class="btn btn-default-2" (click)="confirmdeletemodal.close()" style="margin-bottom:0;margin-right:10px;">Hủy bỏ</button>
+                        <button type="button" (click)="removeOK()" class="btn btn-primary">
+                          Đồng ý </button>
+                      </div>
+                    </bs-modal-footer>
+                  </bs-modal>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- end Cận lâm sàng -->
+    </div>
+
+    <div class="row main2">
+      <!-- Chuẩn đoán -->
+      <div *ngIf="step===3">
+        <!-- Tìm kiếm bệnh chuẩn đoán -->
+        <div class="col-md-8 col-left">
+          <div class="left">
+            <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;padding-left: 30px;">
+              <div class="form-group" style="margin-left: 30px">
+                <span>Tìm kiếm bệnh chuẩn đoán</span>
+              </div>
+              <div class="row">
+                <div class="col-md-12" style="padding-left: 45px;padding-top: 30px;">
+                  <div class="col-md-3" style="padding: 0" (click)="changeStep1(0)">
+                    <span class="step-number" [ngClass]="{'active': step1 === 0}">DANH MỤC BỆNH</span>
+                  </div>
+                  <div class="col-md-4" style="padding: 0;width:30%" (click)="changeStep1(1)">
+                    <span class="step-number" [ngClass]="{'active': step1 === 1}">BỆNH CHỌN GẦN ĐÂY</span>
+                  </div>
+                  <div class="col-md-3" style="padding: 0;" (click)="changeStep1(2)">
+                    <span class="step-number" [ngClass]="{'active': step1 === 2}">ICD10</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Danh mục bệnh -->
+              <div class="card-footer row" *ngIf="step1===0" style="padding-left: 20px;padding-right: 20px;">
+                <div class="col-md-12">
+                  <div class="col-md-12">
+                    <div class="form-group" style="width: 100%;padding: 0;">
+                      <label class="control-label">Tìm kiếm bệnh...</label>
+                      <input class="form-control" />
+                    </div>
+                  </div>
+
+                  <div class="col-md-12">
+                    <ngx-datatable class="material" [rows]="list_cls" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+                      [limit]="5" style="width:100%">
+                      <ngx-datatable-column sortable="false" prop="name" name="Danh sách bệnh lý">
+                        <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                          <p (click)="eventClick01(row)">{{value}}</p>
+                        </ng-template>
+                      </ngx-datatable-column>
+                    </ngx-datatable>
+                  </div>
+                </div>
+              </div>
+              <!-- End Dành mục bệnh -->
+            </div>
+          </div>
+        </div>
+        <!-- End Tìm kiếm bệnh chuẩn đoán -->
+
+        <!-- Các bệnh chuẩn đoán -->
+        <div class="col-md-4 col-left col-right">
+          <div class="left">
+            <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;">
+              <div class="card-content" style="padding: 5px 15px !important;text-align:left !important;font-size: 18px;font-weight: 500;padding-left: 30px;">
+                <ngx-datatable class="material" [rows]="list_cls_push" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+                  [limit]="7" style="width:100%">
+                  <ngx-datatable-column sortable="false" prop="name" name="Các bệnh chuẩn đoán">
+                    <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                      <p>{{value}}
+                        <i class="material-icons md-18" (click)="deleteRow(row)" style="float: right;color:#cecece">clear</i>
+                      </p>
+                    </ng-template>
+                  </ngx-datatable-column>
+                </ngx-datatable>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- End Các bệnh chuẩn đoán -->
+      </div>
+      <!-- End Chuẩn đoán-->
+
+      <!-- Điều trị -->
+      <div *ngIf="step===4" class="step4">
+        <div class="row">
+          <!-- step -->
+          <div class="col-md-12" style="padding-left:auto;padding-top: 30px;">
+            <div class="col-md-3"></div>
+            <div class="col-md-1 col-xs-4" style="padding: 0" (click)="changeStep4(0)">
+              <div class="step-number" [ngClass]="{'active': step4 === 0}">
+                <i class="material-icons">mode_edit</i>
+                <p>
+                  <b>GHI CHÚ</b>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1 col-xs-4" style="padding: 0;" (click)="changeStep4(1)">
+              <div class="step-number" [ngClass]="{'active': step4 === 1}">
+                <i class="material-icons">mode_edit</i>
+                <p>
+                  <b>KÊ THUỐC</b>
+                </p>
+              </div>
+            </div>
+            <div class="col-md-1"></div>
+            <div class="col-md-1 col-xs-4" style="padding: 0; " (click)="changeStep4(2)">
+              <div class="step-number" style="padding-left:5px;padding-right: 5px " [ngClass]="{'active': step4 === 2}">
+                <i class="material-icons">mode_edit</i>
+                <p>
+                  <b>LÀM THỦ THUẬT</b>
+                </p>
+              </div>
+            </div>
+          </div>
+          <!-- end step -->
+        </div>
+        <div class="row">
+          <!-- Kê thuốc -->
+          <div *ngIf="step4===1">
+            <div class="col-left" style="margin:0px 15px ">
+              <div class="left">
+                <div class="card-content" style="padding: 5px 0 !important;text-align:left !important;font-size: 18px;font-weight: 500;padding-left: 30px;">
+                  <div class="row">
+                    <div class="col-md-12" style="padding-left: 47px;padding-top: 30px;">
+                      <div class="col-md-2" style="padding: 0;text-align: center;" (click)="changeStepTimThuoc(0)">
+                        <span class="step-number" [ngClass]="{'active': step_thuoc === 0}">TÌM THUỐC</span>
+                      </div>
+                      <div class="col-md-3 col-xs-12" style="padding: 0;" (click)="changeStepTimThuoc(1)">
+                        <span class="step-number" [ngClass]="{'active': step_thuoc === 1}">ĐƠN THUỐC CÓ SẴN</span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Tìm thuốc -->
+                  <div *ngIf="step_thuoc===0" style="padding: 0px 30px">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="form-group" style="width: 100%;padding: 0;">
+                          <label class="control-label">Tìm kiếm thuốc...</label>
+                          <input class="form-control" />
+                        </div>
+                      </div>
+                      <div class="col-md-12">
+                        <ngx-datatable class="material" [rows]="arry_thuoc_co_san" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40"
+                          [rowHeight]="40" [limit]="5" style="width:100%">
+                          <ngx-datatable-column sortable="true" prop="name" name="Danh sách thuốc có sẵn">
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template style="padding:20px 0">
+                              <p (click)="detail_thuoc(row)">{{value}}
+                                <span *ngIf="row.id===3" style="color: red;font-size: 12px;float: right;">Hết thuốc</span>
+                              </p>
+                            </ng-template>
+                          </ngx-datatable-column>
+                        </ngx-datatable>
+                      </div>
+
+                      <div class="col-md-12">
+                        <div class="card card-stats">
+                          <!-- Danh sách thuốc đã kê -->
+                          <div class="card-content">
+                            <p style="float: left;font-size:13px">Danh sách thuốc đã kê</p>
+                            <ngx-datatable class="material" [rows]="list_ds_thuoc" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+                              [limit]="3" style="width:100%">
+                              <ngx-datatable-column name="STT" sortable="true" [width]="10">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                                  {{rowIndex + 1}}
+                                </ng-template>
+                              </ngx-datatable-column>
+                              <ngx-datatable-column name="Tên thuốc" sortable="true" prop="name">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                  {{value}}
+                                </ng-template>
+                              </ngx-datatable-column>
+                              <ngx-datatable-column name="Số lượng" sortable="true" prop="sl">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                  {{value}}
+                                </ng-template>
+                              </ngx-datatable-column>
+                              <ngx-datatable-column name="Dạng đóng gói" sortable="true" prop="ddg">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                  {{value}}
+                                </ng-template>
+                              </ngx-datatable-column>
+                              <ngx-datatable-column name="Liều lượng" sortable="true" prop="ll">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                  {{value}}
+                                </ng-template>
+                              </ngx-datatable-column>
+                              <ngx-datatable-column name="Tần suất" sortable="true" prop="ts">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                  {{value}}
+                                </ng-template>
+                              </ngx-datatable-column>
+                              <ngx-datatable-column name="Thời gian" sortable="true" prop="tg">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                  {{value}}
+                                </ng-template>
+                              </ngx-datatable-column>
+                              <ngx-datatable-column name="" sortable="true" prop="id" [width]="10">
+                                <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                  {{column.name}}
+                                </ng-template>
+                                <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                  <span style="color:rgb(107, 107, 107);font-size: 14px;">
+                                    <i class="material-icons md-18" style="margin-right: 10px;" (click)="ke_don(row)">create</i>
+                                    <i class="material-icons md-18" (click)="deleteRow1(row)">clear</i>
+                                  </span>
+                                </ng-template>
+                              </ngx-datatable-column>
+                            </ngx-datatable>
+
+                            <div class="row" style="padding: 0px 25px;">
+                              <button class="btn btn-sm btn-primary" style="padding: 10px 20px;font-weight: bold; background: #dddddd;color:black" (click)="addData()">
+                                <i class="material-icons">add</i>
+                                <span>THÊM THUỐC</span>
+                              </button>
+                              <button class="btn btn-sm btn-primary" style="padding: 10px 20px;font-weight: bold;background: #dddddd;color:black " (click)="luu_mau_don_thuoc()">
+                                <span>LƯU MẪU ĐƠN THUỐC</span>
+                              </button>
+                            </div>
+                          </div>
+                          <!-- end Danh sách thuốc đã kê -->
+
+                          <!-- Kê đơn chi tiết -->
+                          <bs-modal #kedonchitiet [backdrop]="'static'" [keyboard]="false">
+                            <form #kedonForm="ngForm" (ngSubmit)="saveData()">
+                              <bs-modal-header>
+                                <h4 class="modal-title">Kê đơn chi tiết</h4>
+                              </bs-modal-header>
+                              <bs-modal-body>
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid #e5e5e5;">
+                                    <div class="col-md-5" style="padding-top: 37px;font-size: 17px;font-weight: 400;">
+                                      <span>Số lượng</span>
+                                    </div>
+                                    <div class="col-md-2">
+                                      <div class="form-group" style="margin-top:0px">
+                                        <label class="control-label">Số lượng</label>
+                                        <input class="form-control" maxlength="15" [(ngModel)]="obj_edit.sl" name="sl" required #sl="ngModel" />
+                                      </div>
+                                    </div>
+                                    <div class="col-md-2">
+                                      <div class="form-group" style="width: 100%;padding: 0;margin-top: 0px">
+                                        <label class="control-label">Đơn vị</label>
+                                        <select class="browser-default form-control" [(ngModel)]="obj_edit.dv" name="dv" required #dv="ngModel">
+                                          <option [ngValue]="item.name" *ngFor="let item of Arraydv">{{item.name}}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <button class="btn btn-sm btn-primary" style="padding: 5px 30px;font-weight: bold;background: #dddddd;color: black;margin-top: 40px;">
+                                        <span>OK</span>
+                                      </button>
+                                      <i class="material-icons md-18" style="font-size: 17px;float: right;margin-top: 45px;margin-right: -10px;">clear</i>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid #e5e5e5;">
+                                    <div class="col-md-9" style="padding-top: 15px;padding-bottom:15px;font-size: 17px;font-weight: 400;">
+                                      <span>Dạng đóng gói</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="form-group" style="width: 100%;padding: 0;margin-top: 0px">
+                                        <!-- <label class="control-label">Đơn vị</label> -->
+                                        <select style="background: none;margin-top: 8px;" class="browser-default form-control" [(ngModel)]="obj_edit.dv" name="dv" required #dv="ngModel">
+                                          <option [ngValue]="item.name" *ngFor="let item of Arraydv">{{item.name}}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid #e5e5e5;">
+                                    <div class="col-md-9" style="padding-top: 15px;padding-bottom:15px;font-size: 17px;font-weight: 400;">
+                                      <span>Đường dùng</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="form-group" style="width: 100%;padding: 0;margin-top: 0px">
+                                        <!-- <label class="control-label">Đơn vị</label> -->
+                                        <select style="background: none;margin-top: 8px;" class="browser-default form-control" [(ngModel)]="obj_edit.dv" name="dv" required #dv="ngModel">
+                                          <option [ngValue]="item.name" *ngFor="let item of Arraydv">{{item.name}}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid #e5e5e5;">
+                                    <div class="col-md-9" style="padding-top: 15px;padding-bottom:15px;font-size: 17px;font-weight: 400;">
+                                      <span>Liều lượng</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="form-group" style="width: 100%;padding: 0;margin-top: 0px">
+                                        <!-- <label class="control-label">Đơn vị</label> -->
+                                        <select style="background: none;margin-top: 8px;" class="browser-default form-control" [(ngModel)]="obj_edit.dv" name="dv" required #dv="ngModel">
+                                          <option [ngValue]="item.name" *ngFor="let item of Arraydv">{{item.name}}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid #e5e5e5;">
+                                    <div class="col-md-9" style="padding-top: 15px;padding-bottom:15px;font-size: 17px;font-weight: 400;">
+                                      <span>Tần suất</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="form-group" style="width: 100%;padding: 0;margin-top: 0px">
+                                        <!-- <label class="control-label">Đơn vị</label> -->
+                                        <select style="background: none;margin-top: 8px;" class="browser-default form-control" [(ngModel)]="obj_edit.dv" name="dv" required #dv="ngModel">
+                                          <option [ngValue]="item.name" *ngFor="let item of Arraydv">{{item.name}}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid #e5e5e5;">
+                                    <div class="col-md-9" style="padding-top: 15px;padding-bottom:15px;font-size: 17px;font-weight: 400;">
+                                      <span>Thời gian dùng</span>
+                                    </div>
+                                    <div class="col-md-3">
+                                      <div class="form-group" style="width: 100%;padding: 0;margin-top: 0px">
+                                        <!-- <label class="control-label">Đơn vị</label> -->
+                                        <select style="background: none;margin-top: 8px;" class="browser-default form-control" [(ngModel)]="obj_edit.dv" name="dv" required #dv="ngModel">
+                                          <option [ngValue]="item.name" *ngFor="let item of Arraydv">{{item.name}}</option>
+                                        </select>
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+
+                                <div class="row">
+                                  <div class="col-md-12" style="border-bottom: 1px solid #e5e5e5;">
+                                    <div class="col-md-8" style="padding-top: 15px;padding-bottom:15px;font-size: 17px;font-weight: 400;">
+                                      <span>Ghi chú</span>
+                                    </div>
+                                    <div class="col-md-4">
+                                      <div class="form-group" style="width: 100%;padding: 0;margin-top: 0px">
+                                        <input class="form-control"  name="sl" required />
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <style>
+                                  .label-control {
+                                    margin-top: 8px;
+                                  }
+                                </style>
+                              </bs-modal-body>
+                              <bs-modal-footer style="margin:auto">
+                                <div class="row">
+                                  <div class="col-md-3"><a (click)="huy_ke_don()" style="float: left;
+                                    font-size: 15px;
+                                    margin-left: 27px;
+                                    font-weight: 700;
+                                    border-bottom: 1px solid;
+                                    color: #6f6f6f;">HỦY</a></div>
+                                  <div class="col-md-9"><button style="margin: auto;
+                                    padding: 8px 110px;
+                                    float: left;
+                                    background: #d8d8d8;
+                                    color: black;
+                                    font-weight: 700;" type="submit" class="btn btn-primary">Đồng ý</button></div>
+                                </div>
+                                <!-- <button type="button" class="btn btn-default" (click)="huy_ke_don()" style="margin-bottom:0;">Hủy bỏ</button> -->
+
+                              </bs-modal-footer>
+                            </form>
+                          </bs-modal>
+
+                          <!-- end kê đơn chi tiết -->
+
+                          <!-- Modal Add EDIT -->
+                          <bs-modal #modal1 [backdrop]="'static'" [keyboard]="false">
+                            <form #modalForm="ngForm" (ngSubmit)="saveData()">
+                              <bs-modal-header>
+                                <h4 class="modal-title" *ngIf="state_type === 'new'">Thêm mới phúc lợi</h4>
+                                <h4 class="modal-title" *ngIf="state_type === 'edit'">Sửa phúc lợi</h4>
+                              </bs-modal-header>
+                              <bs-modal-body>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label class="control-label">Mã phúc lợi</label>
+                                        <!-- <input class="form-control" maxlength="15" [(ngModel)]="obj_edit.code" name="code" required #code="ngModel" /> -->
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label class="control-label">Tên phúc lợi</label>
+                                        <!-- <input class="form-control" maxlength="15" [(ngModel)]="obj_edit.name" name="name" required #name="ngModel" /> -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="row">
+                                  <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label class="control-label">Giá</label>
+                                        <!-- <input class="form-control" type="number" [(ngModel)]="obj_edit.price" name="price" required #price="ngModel" /> -->
+                                      </div>
+                                    </div>
+                                    <div class="col-sm-6">
+                                      <div class="form-group">
+                                        <label class="control-label">Giá bảo hiểm</label>
+                                        <!-- <input class="form-control" type="number" [(ngModel)]="obj_edit.priceIns" name="priceIns" required #priceIns="ngModel" /> -->
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                                <style>
+                                  .label-control {
+                                    margin-top: 8px;
+                                  }
+                                </style>
+                              </bs-modal-body>
+                              <bs-modal-footer>
+                                <button type="button" class="btn btn-default" (click)="cancelSave()" style="margin-bottom:0;">Hủy bỏ</button>
+                                <button type="submit" class="btn btn-primary">Đồng ý</button>
+                              </bs-modal-footer>
+                            </form>
+                          </bs-modal>
+
+                          <!-- Modal Confirm Delete -->
+                          <bs-modal #confirmdeletemodal [backdrop]="'static'" [keyboard]="false">
+                            <bs-modal-body>
+                              <div class="container" style="padding: 10px 25px;width:100%;">
+                                Xác nhận xóa
+                              </div>
+                            </bs-modal-body>
+                            <bs-modal-footer>
+                              <div style="padding-right:40px;">
+                                <button type="button" class="btn btn-default-2" (click)="confirmdeletemodal.close()" style="margin-bottom:0;margin-right:10px;">Hủy bỏ</button>
+                                <button type="button" (click)="removeOK()" class="btn btn-primary">
+                                  Đồng ý </button>
+                              </div>
+                            </bs-modal-footer>
+                          </bs-modal>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Tìm thuốc -->
+
+                <!-- Đơn thuốc có sẵn -->
+                <div *ngIf="step_thuoc===1" style="padding: 0px 30px">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group" style="width: 100%;padding: 0;">
+                        <label class="control-label">Tìm kiếm đơn thuốc có sẵn...</label>
+                        <input class="form-control" />
+                      </div>
+                    </div>
+                    <div class="col-md-12">
+                      <ngx-datatable class="material" [rows]="arry_don_thuoc_co_san" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40"
+                        [rowHeight]="40" [limit]="5" style="width:100%">
+                        <ngx-datatable-column sortable="false" prop="name" name="Danh sách đơn thuốc có sẵn">
+                          <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                            <p (click)="detail_don_thuoc(row)">{{value}}</p>
+                          </ng-template>
+                        </ngx-datatable-column>
+                      </ngx-datatable>
+                    </div>
+                  </div>
+                </div>
+                <!-- End Đớn thuốc có sẵn -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+
+
+  <div class="row footer">
+    <div class="col-sm-12" *ngIf="step===0">
+      <div class="col-sm-6">
+        <button class="btn btn-danger">HỦY KHÁM</button>
+      </div>
+      <div class="col-sm-6 text-right">
+        <button class="btn btn-info" style="margin-right: 25px;">CHUYỂN KHOA</button>
+        <button class="btn btn-default">KẾT THÚC KHÁM</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1137 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>pko</name>
+    </assembly>
+    <members>
+        <member name="M:PKO.Controllers.CommentController.List(PKO.Models.ReferParam)">
+            <summary>
+            Get list if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CommentController.Get(System.Int32)">
+             <summary>
+             Get item's info
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Get
+                 {
+                    "id": 1
+                 }
+             </remarks>
+             <param name="id">id of item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CommentController.Create(PKO.Models.Comment)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Comment/Create
+                 {
+                    "personComment": "string",
+                    "content": "string",
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.CommentController.Update(PKO.Models.Comment)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Comment/Update
+                 {
+                    "id": 1,
+                    "CompanyId": 1,
+                    "codeComment": "string",
+                    "timeComment": "0/0/2018",
+                    "personComment": "string",
+                    "content": "string",
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CommentController.Delete(System.Int64)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CompanyControllers.GetAll">
+            <summary>
+            Get list if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CompanyControllers.GetById(System.Int64)">
+            <summary>
+            Get item's info
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CompanyControllers.Create(PKO.Models.Company)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Company
+                 {
+                    "id": 1,
+                    "name": "Item1"
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>
+        </member>
+        <member name="M:PKO.Controllers.CompanyControllers.Update(System.Int64,PKO.Models.OtherList)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /Company
+                 {
+                    "id": 1,
+                    "name": "Item1"
+                 }
+             </remarks>
+             <param name="id">id of item</param>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CompanyControllers.Delete(System.Int64)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListController.List(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/OtherList/List
+                 {
+                    "id": 0
+                    "name": "demo100",
+                     "typeid" : 0
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListController.ListMucDo(PKO.Models.ReferParam)">
+            <summary>
+            Get list if item for id = 2
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListController.GetById(System.Int64)">
+            <summary>
+            Get item's info
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListController.Create(PKO.Models.OtherList)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/OtherList/Create
+                 {
+                    "CompanyId": 0,
+                    "typeId": 1,
+                    "name": "Item1",
+                    "MaDM": "LCV000001",
+                    "Status":1,
+                    "Comment": "string",
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.OtherListController.Update(PKO.Models.OtherList)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/OtherList/Update
+                 {
+                    "CompanyId": 0,
+                    "name": "Item1",
+                     "Status" = 1;
+                     "Comment" = "string";
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListTypeController.List(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/otherlisttype/List
+                 {
+                    "id": 0
+                    "name": "demo100",
+                     "typeid" : 0
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListTypeController.Get(System.Int32)">
+             <summary>
+             Danh mục dùng theo parent
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 GET /api/cls/ListByParent?parent=
+             
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListTypeController.Create(PKO.Models.OtherListType)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/otherlisttype/Create
+                 {
+                    "CompanyId": 0,
+                    "name": "Item1"
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.OtherListTypeController.Update(PKO.Models.OtherListType)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/otherlisttype/Update
+                 {
+                    "CompanyId": 0,
+                    "name": "Item1"
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.OtherListTypeController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PerDetailGroupController.List(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PerDetailGroup/List
+                 {
+                    "id": 0
+                    "name": "demo100",
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PerDetailGroupController.Create(PKO.Models.PerDetailGroup)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PerDetailGroup/create
+                 {
+                    "PermissionDetailId":1,
+                    "PermissionGroupId":1    
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PerDetailGroupController.Update(PKO.Models.PerDetailGroup)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PerDetailGroup/Update
+                 {
+                    "PermissionDetailId" : 1,     
+                    "PermissionGroupId": 1,
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PerDetailGroupController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionController.List(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Permission/List
+                 {
+                    "id": 0
+                    "name": "demo100",
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionController.GetAll">
+            <summary>
+            Get GetAll if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionController.GetAllWhere(System.String)">
+            <summary>
+            Get GetAllWhere if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionController.Create(PKO.Models.Permission)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Permission/create
+                 {
+                    "CompanyId": 0,
+                    "Code": "PQ000001",
+                    "Name": "string",
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PermissionController.Update(PKO.Models.Permission)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Permission/Update
+                 {
+                    "PermissionGroupId":1,
+                    "Name": "string",
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PermissionController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionDetailController.List(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PermissionDetail/List
+                 {
+                    "id": 0
+                    "name": "demo100",
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionDetailController.ListDetail(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PermissionDetail/ListDetail
+                 {
+                    "id": 0
+                    "name": "demo100",
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionDetailController.Create(PKO.Models.PermissionDetail)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PermissionDetail/create
+                 {
+                    "PermissionGroupId":1,
+                    "CompanyId": 0,
+                    "Code": "PQ000001",
+                    "Name": "string",
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PermissionDetailController.Update(PKO.Models.PermissionDetail)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PermissionDetail/Update
+                 {
+                    "PermissionDetail" : 1,     
+                    "Name": "string",
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PermissionDetailController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionGroupController.List(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PermissionGroup/List
+                 {
+                    "id": 0
+                    "name": "demo100",
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PermissionGroupController.Create(PKO.Models.PermissionGroup)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PermissionGroup/create
+                 {
+                    "Name": "string",
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PermissionGroupController.Update(PKO.Models.PermissionGroup)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/PermissionGroup/Update
+                 {
+                    "id" : 1,   
+                    "Name": "string",
+                    "PermissionId" : 1
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PermissionGroupController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PersonProjectController.List(PKO.Models.ReferParam)">
+             <summary>
+             Get list if item
+             </summary>
+            <remarks>
+             Sample request:
+            
+                 POST /api/personproject/list
+                 {
+                    "id": 1
+                 }
+             </remarks>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PersonProjectController.Get(System.Int32)">
+             <summary>
+             Get item's info
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/personproject/Get
+                 {
+                    "id": 1
+                 }
+             </remarks>
+             <param name="id">id of item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PersonProjectController.Create(PKO.Models.PersonProject)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/personproject/create
+                 {
+                    "CompanyId": "1",
+                    "UsersId": "string",
+                    "ProjectId": 1
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.PersonProjectController.Update(PKO.Models.PersonProject)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/personproject/update
+                 {
+                    "UsersId": "string",
+                    "ProjectId": 1
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.PersonProjectController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.ProjectController.List(PKO.Models.ReferParam)">
+            <summary>
+            Get list if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.ProjectController.Get(System.Int32)">
+             <summary>
+             Get item's info
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Project/Get
+                 {
+                    "id": 1
+                 }
+             </remarks>
+             <param name="id">id of item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.ProjectController.Create(PKO.Models.Project)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/project/Create
+                 {
+                    "CompanyId": "1",
+                    "codeProject": "string",
+                    "nameProject": "string",
+                    "startDate": "0/0/2018",
+                    "endDate": "0/0/2018",
+                    "note": "string"
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.ProjectController.Update(PKO.Models.Project)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Update
+                 {
+                    "Id": "0",
+                    "CompanyId": "1",
+                    "codeProject": "string",
+                    "nameProject": "string",
+                    "startDate": "0/0/2018",
+                    "endDate": "0/0/2018",
+                    "note": "string"
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.ProjectController.Delete(System.Int64)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.SprintController.List(PKO.Models.ReferParam)">
+            <summary>
+            Get list if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.SprintController.Get(System.Int32)">
+             <summary>
+             Get item's info
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Sprint/Get
+                 {
+                    "id": 1
+                 }
+             </remarks>
+             <param name="id">id of item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.SprintController.Create(PKO.Models.Sprint)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Sprint/Create
+                 {
+                    "CompanyId": 1,
+                    "idProject": 0,
+                    "nameSprint": "string",
+                    "startDate": "1/1/2018",
+                    "endDate": "1/1/2018",
+                    "timeExtension": "1/1/2018",
+                    "statusSprint":0,
+                    "Note":"string"    
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.SprintController.Update(PKO.Models.Sprint)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/Comment/Update
+                 {
+                    "Id": 1,
+                    "CompanyId": 1,
+                    "idProject": 0,
+                    "nameSprint": "string",
+                    "startDate": "1/1/2018",
+                    "endDate": "1/1/2018",
+                    "timeExtension": "1/1/2018",
+                    "statusSprint":0,
+                    "Note":"string"    
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.SprintController.Delete(System.Int64)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.List(PKO.Models.ReferParam)">
+            <summary>
+            Get list if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.ListSprint(PKO.Models.ReferParam)">
+            <summary>
+            Get list if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.ListProjectTask(PKO.Models.ReferParam)">
+            <summary>
+            Get list producttask of project of sprint 
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.Get(System.Int32)">
+             <summary>
+             Get item's info
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Get
+                 {
+                    "id": 1
+                 }
+             </remarks>
+             <param name="id">id of item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.Create(PKO.Models.ProjectTask)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Create
+                 {
+                    "IdDuAn":1,
+                    "IdSprint":1,
+                    "nameCV": "string",
+                    "typeCV": "string",
+                    "Overview": "string",
+                    "contentTask": "string",
+                    "timeTask": "string",
+                    "levelTask": "1",
+                    "IdNguoiTaoViec": 0,
+                    "IdNguoiGanViec": 0,
+                    "Status" :1
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.Update(PKO.Models.ProjectTask)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Update
+                 {
+                    "Id": 1,
+                    "CompanyId": 1,
+                    "IdDuAn":1,
+                    "IdSprint":1,
+                    "codeCV":"string",
+                    "nameCV": "string",
+                    "typeCV": "string",
+                    "Overview": "string",
+                    "contentTask": "string",
+                    "timeTask": "string",
+                    "levelTask": "1",
+                    "IdNguoiTaoViec": 0,
+                    "IdNguoiGanViec": 0,
+                    "Status" : 1
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.ChangeStatus(PKO.Models.ProjectTask)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Changestatus
+                 {
+                    "Id": 1,
+                    "companyId": 1,
+                    "idDuAn":1,
+                    "codeCV":"string",
+                    "nameCV": "string",
+                    "typeCV": "string",
+                    "Overview": "string",
+                    "contentTask": "string",
+                    "timeTask": "1",
+                    "levelTask": "string",
+                    "IdNguoiTaoViec": 0,
+                    "IdNguoiGanViec": 0,
+                    "Status" : 0
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.ChangeStatusOne(PKO.Models.ProjectTask)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Changestatus1
+                 {
+                    "Id": 1,
+                    "companyId": 1,
+                    "idDuAn":1,
+                    "codeCV":"string",
+                    "nameCV": "string",
+                    "typeCV": "string",
+                    "Overview": "string",
+                    "contentTask": "string",
+                    "timeTask": "string",
+                    "levelTask": "1",
+                    "IdNguoiTaoViec": 0,
+                    "IdNguoiGanViec": 0,
+                    "Status" : 1
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.ChangeStatusTwo(PKO.Models.ProjectTask)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Changestatus2
+                 {
+                    "Id": 1,
+                    "companyId": 1,
+                    "idDuAn":1,
+                    "codeCV":"string",
+                    "nameCV": "string",
+                    "typeCV": "string",
+                    "Overview": "string",
+                    "contentTask": "string",
+                    "timeTask": "string",
+                    "levelTask": "1",
+                    "IdNguoiTaoViec": 0,
+                    "IdNguoiGanViec": 0,
+                    "Status" : 2
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.ChangeStatusThree(PKO.Models.ProjectTask)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/DmCongViec/Changestatus3
+                 {
+                    "Id": 1,
+                    "companyId": 1,
+                    "idDuAn":1,
+                    "codeCV":"string",
+                    "nameCV": "string",
+                    "typeCV": "string",
+                    "Overview": "string",
+                    "contentTask": "string",
+                    "timeTask": "string",
+                    "levelTask": "1",
+                    "IdNguoiTaoViec": 0,
+                    "IdNguoiGanViec": 0,
+                    "Status" : 3
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.CongViecController.Delete(System.Int64)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.UserPermissionController.Get(System.Int32)">
+             <summary>
+             Get item's info
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/userpermission/Get
+                 {
+                    "id": 1
+                 }
+             </remarks>
+             <param name="id">id of item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.UserPermissionController.Create(PKO.Models.UserPermission)">
+             <summary>
+             Creates an item.
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/userpermission/create
+                 {
+                    "CompanyId": "1",
+                    "UserId": "string",
+                    "PermissionTypeId": 1
+                 }
+             </remarks>
+             <param name="item"></param>
+             <returns>A newly-created item</returns>
+             <response code="201">Returns the newly-created item</response>
+             <response code="400">If the item is null</response>  
+        </member>
+        <member name="M:PKO.Controllers.UserPermissionController.Update(PKO.Models.UserPermission)">
+             <summary>
+             Update an item
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/userpermission/update
+                 {
+                    "UserId": "string",
+                    "PermissionTypeId": 1
+                 }
+             </remarks>
+             <param name="item">item</param>
+             <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.UserPermissionController.Delete(System.Int32)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.AccountController.SignIn(PKO.Models.LoginParam)">
+             <summary>
+             Signin
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/account/signin
+                 {
+                     "Username":"demo100",
+                     "Password": "Demo100",
+                     "Company": "demo100"
+                 }
+            
+             </remarks>
+             <param name="Credentials"></param>
+             <returns>token string</returns>
+             <response code="400">Bad Request</response>
+             <response code="200">Success</response>
+        </member>
+        <member name="M:PKO.Controllers.AccountController.Logout">
+            <summary>
+            Logout
+            </summary>
+            <returns></returns>
+            <response code="400">Bad Request</response>
+            <response code="200">Success</response>
+        </member>
+        <member name="M:PKO.Controllers.AccountController.List(PKO.Models.UserSearchParam)">
+            <summary>
+            Get list if item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:PKO.Controllers.AccountController.Register(PKO.Models.RegisterParam)">
+             <summary>
+             Register
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/account/register
+                 {
+             	    "Username": "demo100",
+             	    "Company": "demo100",
+             	    "Fullname": "demo100",
+             	    "CompanyName": "demo100",
+             	    "Password": "Demo100",
+             	    "Provider": "self",
+             	    "Email": "demo100@gmail.com",
+             	    "Mobile": "0123456789",
+                     "PermissionId" : "1",
+                     "Comment" : "comment",
+                     "Address" : "Hà Nội",    
+                     "PhoneNumber" : "0123456"
+                 }
+            
+             </remarks>
+             <param name="RegisterForm"></param>
+             <returns>token string</returns>
+             <response code="400">Bad Request</response>
+             <response code="200">Success</response>
+        </member>
+        <member name="M:PKO.Controllers.AccountController.Create(PKO.Models.UserParam)">
+             <summary>
+             CreateUser
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/account/create
+                 {
+                     "Id" :1,
+             	    "Username": "demo100",
+             	    "Fullname": "demo100",
+             	    "Password": "Demo100",
+             	    "Email": "demo100@gmail.com",
+                     "Status" : "1", 
+                     "PermissionId" : "1",
+                     "Comment" : "comment",
+                     "Address" : "Hà Nội",
+                     "OtherListId":1,
+                     "OtherListName":"Develop",
+                     "PhoneNumber":"123456"
+                 }
+            
+             </remarks>
+             <response code="400">Bad Request</response>
+             <response code="200">Success</response>
+        </member>
+        <member name="M:PKO.Controllers.AccountController.UpdateUser(PKO.Models.UserParam)">
+             <summary>
+             UpdateUser
+             </summary>
+             <remarks>
+             Sample request:
+            
+                 POST /api/account/update
+                 {
+                     "Id" :"ad",
+             	    "Username": "demo100",
+             	    "Fullname": "demo100",
+             	    "Password": "Demo100",
+             	    "Email": "demo100@gmail.com",
+                     "Status" : "1", 
+                     "PermissionId" : "1",
+                     "Comment" : "comment",
+                     "Address" : "Hà Nội",
+                     "OtherListId":1,
+                     "OtherListName":"Develop",
+                     "PhoneNumber":"123456789"
+                 }
+            
+             </remarks>
+             <response code="400">Bad Request</response>
+             <response code="200">Success</response>
+        </member>
+        <member name="M:PKO.Controllers.AccountController.Delete(System.String)">
+            <summary>
+            Remove an item
+            </summary>
+            <param name="id">id of item</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

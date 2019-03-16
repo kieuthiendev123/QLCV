@@ -1,0 +1,43 @@
+<div class="main-content" style="margin-top:30px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card" style="margin: 0px">
+                    <div style="background: #edf1f2;font-size:  16px;font-weight: 400;padding: 15px 30px;">Phân quyền
+                        chức năng cho nhóm quyền </div>
+                </div>
+
+                <div class="card-content" style="padding: 0;">
+                    <div class="form-group">
+                        <!-- <input style="width: 30%; margin-left: 70%;" placeholder="Tìm kiếm..." type="text" class="form-control"
+                            name="search" [(ngModel)]="obj_search.name" (ngModelChange)="search()"> -->
+                    </div>
+                </div>
+                <div class="card-content" style="text-align:left">
+                    <!-- <ngx-datatable class="material" [rows]="list_data_where" [columnMode]="'force'" [headerHeight]="40"
+                        [footerHeight]="40" [rowHeight]="40" [limit]="5" style="width:100%">
+                        <ngx-datatable-column name="STT" sortable="true" [width]="10">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" let-rowIndex="rowIndex"
+                                ngx-datatable-cell-template>
+                                {{rowIndex + 1}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                    </ngx-datatable> -->
+                        <button class="btn btn-sm btn-primary" (click)="addData()"><i class="material-icons">add</i></button>
+
+                        <div class="col-md-10 col-sm-12">
+                            <div class="form-group">
+
+                                <ngx-treeview [config]="config" [items]="items" (filterChange)="onFilterChange($event)"
+                                    (selectedChange)="values = $event">
+                                </ngx-treeview>
+
+                            </div>
+                        </div>
+
+                </div>
+            </div>
+        </div>

@@ -1,0 +1,102 @@
+.page-doctor-exam {
+  margin-top: 50px;
+  .row-header {
+    border-top: 1px solid #cecece;
+    border-bottom: 1px solid #cecece;
+    padding: 25px 0 10px;
+    margin-bottom: 25px;
+    .step-number {
+      padding: 5px 10px;
+      border-radius: 15px;
+      background: #cecece;
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    .step-name {
+      font-weight: 500;
+      color: #cecece;
+      cursor: pointer;
+    }
+    .step-name.active {
+      color: black;
+    }
+    .step-number.active {
+      background: black;
+      color: white;
+    }
+  }
+  .row.main {
+    padding: 25px 15px 35px;
+    background: white;
+    height: 100%;
+    border-radius: 3px;
+    box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42),
+      0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    .title-step-1 {
+      margin-bottom: 15px;
+    }
+  }
+  .row.main2 {
+    .col-left {
+      padding-left: 0px;
+      .left {
+        background: white;
+        height: 100%;
+        border-radius: 3px;
+        box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42),
+          0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+        .step-number {
+          padding: 12px 28px;
+          border-radius: 55px;
+          // background: #cecece;
+          margin-right: 5px;
+          font-size: 13px;
+          cursor: pointer;
+        }
+        .step-name {
+          font-weight: 500;
+          color: #cecece;
+          cursor: pointer;
+        }
+        .step-name.active {
+          color: black;
+        }
+        .step-number.active {
+          background: black;
+          color: white;
+        }
+      }
+    }
+    .col-right {
+      padding-right: 0px;
+    }
+
+    .step4 {
+      .col-left {
+        padding-left: 0px;
+        .left {
+          background: white;
+          height: 100%;
+          border-radius: 3px;
+          box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42),
+            0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+        }
+      }
+      .step-number {
+        border-radius: 3px;
+        margin-right: 5px;
+        font-size: 13px;
+        cursor: pointer;
+        text-align: center;
+        color: #979797;
+        padding-top: 20px;
+        padding-bottom: 6px;
+      }
+
+      .step-number.active {
+        background: #666666;
+        color: white;
+      }
+    }
+  }
+}

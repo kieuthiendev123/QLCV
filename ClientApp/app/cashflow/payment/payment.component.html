@@ -1,0 +1,54 @@
+<div class="main-content" style="margin-top:30px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="red">
+                    <i class="material-icons">equalizer</i>
+                </div>
+                <div class="card-content" style="padding: 0;">
+                    <div class="form-group">
+                        <input style="width: 30%; margin-left: 70%;" placeholder="Tìm kiếm..." type="text" class="form-control" name="search" [(ngModel)]="obj_search.code"
+                            (ngModelChange)="search()">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <ngx-datatable class="material" [rows]="list_data" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+                        [limit]="5" style="width:100%">
+                        <ngx-datatable-column name="Mã phiếu chi" sortable="true" prop="voucherCode">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Mã bệnh nhân" sortable="true" prop="code">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Tên bệnh nhân" sortable="true" prop="name">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                <b>{{column.name}}</b>
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Số tiền chi" sortable="true" prop="totalPrice">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <p style="margin-bottom:5px;">{{value | number:0}} VNĐ</p>
+                            </ng-template>
+                        </ngx-datatable-column>
+                    </ngx-datatable>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

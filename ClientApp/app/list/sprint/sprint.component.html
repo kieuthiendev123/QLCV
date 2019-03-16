@@ -1,0 +1,198 @@
+<div class="main-content" style="margin-top:30px;">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="card card-stats">
+        <div class="card-header" data-background-color="red">
+          <i class="material-icons">equalizer</i>
+        </div>
+        <div class="card-content" style="padding: 0;">
+          <div class="form-group">
+            <input style="width: 30%; margin-left: 70%;" placeholder="Tìm kiếm..." type="text" class="form-control" name="search" [(ngModel)]="obj_search.name"
+              (ngModelChange)="search()">
+          </div>
+        </div>
+        <div class="card-footer">
+          <div class="row" style="padding: 0px 25px;">
+            <button class="btn btn-sm btn-primary" (click)="addData()"><i class="material-icons">add</i></button>
+          </div>
+          <ngx-datatable class="material" [rows]="list_data" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="40"
+            [limit]="5" style="width:100%">
+            <ngx-datatable-column name="STT" sortable="true" >
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" let-rowIndex="rowIndex" ngx-datatable-cell-template>
+                {{rowIndex + 1}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Mã Dự Án" sortable="true" prop="idProject">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Mã Sprint" sortable="true" prop="codeSprint">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Tên Giai Đoạn" sortable="true" prop="nameSprint">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ngày Bắt Đầu" sortable="true"  prop="startDate">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ngày Kết Thúc" sortable="true"  prop="endDate">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Gia Hạn Thời Gian" sortable="true" prop="timeExtension">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Trạng Thái" sortable="true" prop="statusSprint">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Ghi Chú" sortable="true" prop="note">
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                {{value}}
+              </ng-template>
+            </ngx-datatable-column>
+            <ngx-datatable-column name="Action" sortable="true" prop="id" >
+              <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                {{column.name}}
+              </ng-template>
+              <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                <span style="color:rgb(107, 107, 107);font-size: 14px;">
+                  <i class="material-icons md-18" style="margin-right: 10px;" (click)="editData(row)">create</i>
+                  <i class="material-icons md-18" (click)="deleteRow(row)">clear</i>
+                </span>
+              </ng-template>
+            </ngx-datatable-column>
+          </ngx-datatable>
+
+          <!-- Modal Add EDIT -->
+          <bs-modal #modal1 [backdrop]="'static'" [keyboard]="false">
+            <form #modalForm="ngForm" (ngSubmit)="saveData()">
+              <bs-modal-header>
+                <h4 class="modal-title" *ngIf="state_type === 'new'">Thêm mới giai đoạn</h4>
+                <h4 class="modal-title" *ngIf="state_type === 'edit'">Sửa giai đoạn</h4>
+              </bs-modal-header>
+              <bs-modal-body>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Mã Dự Án</label>
+                        <select class="browser-default form-control" [(ngModel)]="obj_edit.idProject" name="idProject" required #idProject="ngModel">
+                          <option [ngValue]="item.id" *ngFor="let item of list_Project">{{item.nameProject}}</option>
+                      </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Tên Giai Đoạn</label>
+                        <input type="text" class="form-control" maxlength="15"  [(ngModel)]="obj_edit.nameSprint" name="nameSprint" required #nameSprint="ngModel"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Ngày Bắt Đầu</label>
+                        <input type="date" class="form-control" maxlength="15"  [(ngModel)]="obj_edit.startDate" name="startDate" required #startDate="ngModel"
+                        />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Ngày Kết Thúc</label>
+                        <input type="date" class="form-control" maxlength="15"  [(ngModel)]="obj_edit.endDate" name="endDate" required #endDate="ngModel" />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Gia Hạn Thời Gian</label>
+                        <input type="date" class="form-control" maxlength="15" [(ngModel)]="obj_edit.timeExtension" name="timeExtension"  #timeExtension="ngModel" />
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Trạng Thái</label>
+                        <select class="browser-default form-control" [(ngModel)]="obj_edit.statusSprint" name="statusSprint" required #statusSprint="ngModel">
+                          <option [ngValue]="item.id" *ngFor="let item of list_status">{{item.name}}</option>
+                      </select>
+                      </div>
+                    </div>
+                    <div class="col-sm-6">
+                      <div class="form-group">
+                        <label class="control-label">Ghi Chú</label>
+                        <input class="form-control" maxlength="15" [(ngModel)]="obj_edit.note" name="note"  #note="ngModel" />
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <style>
+                  .label-control {
+                    margin-top: 8px;
+                  }
+                </style>
+              </bs-modal-body>
+              <bs-modal-footer>
+                <button type="button" class="btn btn-default" (click)="cancelSave()" style="margin-bottom:0;">Hủy bỏ</button>
+                <button type="submit" class="btn btn-primary" >Đồng ý</button>
+              </bs-modal-footer>
+            </form>
+          </bs-modal>
+
+          <!-- Modal Confirm Delete -->
+          <bs-modal #confirmdeletemodal [backdrop]="'static'" [keyboard]="false">
+            <bs-modal-body>
+              <div class="container" style="padding: 10px 25px;width:100%;">
+                Xác nhận xóa
+              </div>
+            </bs-modal-body>
+            <bs-modal-footer>
+              <div style="padding-right:40px;">
+                <button type="button" class="btn btn-default-2" (click)="confirmdeletemodal.close()" style="margin-bottom:0;margin-right:10px;">Hủy
+                  bỏ</button>
+                <button type="button" (click)="removeOK()" class="btn btn-primary">
+                  Đồng ý </button>
+              </div>
+            </bs-modal-footer>
+          </bs-modal>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

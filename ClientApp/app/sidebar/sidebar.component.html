@@ -1,0 +1,77 @@
+<div class="logo">
+    <div class="logo-normal">
+        <a href="/store/dashboard" class="simple-text">
+            Công việc
+        </a>
+    </div>
+    <div class="logo-img">
+        <img src="/assets/img/angular2-logo-white.png" />
+    </div>
+</div>
+<div class="sidebar-wrapper">
+    <div *ngIf="isNotMobileMenu()">
+        <ul class="nav nav-mobile-menu">
+            <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
+                    <i class="material-icons">notifications</i>
+                    <span class="notification">0</span>
+                    <p class="hidden-lg hidden-md">
+                        Thông báo
+                        <b class="caret"></b>
+                    </p>
+                    <div class="ripple-container"></div>
+                </a>
+                <ul class="dropdown-menu">
+                    <!-- <li>
+                        <a href="#">Mike John responded to your email</a>
+                    </li> -->
+                </ul>
+            </li>
+            <li class="">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#pablo" aria-expanded="false">
+                    <i class="material-icons">person</i>
+                    <p class="hidden-lg hidden-md">Profile</p>
+                    <div class="ripple-container"></div>
+                </a>
+            </li>
+            <li class="separator hidden-lg hidden-md"></li>
+        </ul>
+    </div>
+    <div class="nav-container">
+        <ul class="nav">
+            <li routerLinkActive="active" *ngFor="let menu of menuItems;let index_item of index;">
+                <a *ngIf="(!menu.items || menu.items.length==0) && !menu.params" [routerLink]="[menu.path]">
+                    <i class="material-icons">{{menu.icon}}</i>
+                    <p>{{menu.title}}
+                    </p>
+                </a>
+                <a *ngIf="(!menu.items || menu.items.length==0) && menu.params" [routerLink]="[menu.path,menu.params]">
+                    <i class="material-icons">{{menu.icon}}</i>
+                    <p>{{menu.title}} {{menu.params}}
+                    </p>
+                </a>
+                <a *ngIf="menu.items && menu.items.length>0" data-toggle="collapse" [attr.data-target]="'#' + menu.path">
+                    <i class="material-icons">{{menu.icon}}</i>
+                    <p>{{menu.title}}
+                        <b *ngIf="menu.items && menu.items.length>0" class="caret"></b>
+                    </p>
+                </a>
+                <div class="collapse" *ngIf="menu.items && menu.items.length>0" [id]="menu.path">
+                    <ul class="nav">
+                        <li routerLinkActive="active" *ngFor="let subMenu of menu.items">
+                            <a [routerLink]="[subMenu.path]" *ngIf="!subMenu.params">
+                                <span class="sidebar-mini">{{subMenu.icon}}</span>
+                                <span class="sidebar-normal">{{subMenu.title}}</span>
+                            </a>
+                            <a [routerLink]="[subMenu.path,subMenu.params]" *ngIf="subMenu.params">
+                                    <span class="sidebar-mini">{{subMenu.icon}}</span>
+                                    <span class="sidebar-normal">{{subMenu.title}}</span>
+                                </a>
+                        </li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+</div>

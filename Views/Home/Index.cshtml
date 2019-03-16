@@ -1,0 +1,20 @@
+﻿<app>
+    <div class="loader">
+        <svg class="circular" viewBox="25 25 50 50">
+            <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="2" stroke-miterlimit="10"/>
+        </svg>
+    </div>
+</app>
+<script src="~/assets/js/core/jquery.3.2.1.min.js" asp-append-version="true"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="~/assets/js/core/material.min.js" asp-append-version="true"></script>
+<script src="~/assets/js/core/jquery.perfect-scrollbar.min.js" asp-append-version="true"></script>
+<script src="~/assets/js/core/jquery.validate.min.js" asp-append-version="true"></script>
+<script src="~/assets/js/plugins/jquery-jvectormap.js" asp-append-version="true"></script>
+<script src="~/assets/js/plugins/sweetalert2.min.js" asp-append-version="true"></script>
+<script src="~/dist/vendor.js" asp-append-version="true"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.12.2/js/bootstrap-select.min.js"></script>
+@section scripts {
+    <!-- Our webpack bundle -->
+    <script src="~/dist/main-client.js" asp-append-version="true"></script>
+}

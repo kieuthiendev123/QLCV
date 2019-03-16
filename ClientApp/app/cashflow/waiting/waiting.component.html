@@ -1,0 +1,291 @@
+<div class="main-content" style="margin-top:30px;">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="card card-stats">
+                <div class="card-header" data-background-color="red">
+                    <i class="material-icons">equalizer</i>
+                </div>
+                <div class="card-content" style="padding: 0;">
+                    <div class="form-group">
+                        <input style="width: 30%; margin-left: 70%;" placeholder="Tìm kiếm..." type="text" class="form-control" name="search" [(ngModel)]="obj_search.code"
+                            (ngModelChange)="search()">
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <ngx-datatable class="material" [rows]="list_data" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="getRowHeight"
+                        [limit]="5" style="width:100%">
+                        <ngx-datatable-column name="Mã phiếu thu" sortable="true" prop="code">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <span (click)="detailPatients(row)">{{value}}</span>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Mã bệnh nhân" sortable="true" prop="patientCode">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <span (click)="detailPatients(row)">{{value}}</span>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Tên bệnh nhân" sortable="true" prop="fullName">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                <b>{{column.name}}</b>
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value}}
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Dịch vụ khám" sortable="true" prop="serviceName">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                {{value}}
+                                <!-- <p *ngFor="let item of value">{{item.name}}</p> -->
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Đơn giá" sortable="true" prop="money">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <p>{{value|number:0}} VNĐ</p>
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Thành tiền" sortable="true" prop="money">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <p>{{value|number:0}} VNĐ</p>
+                                <!-- <p *ngFor="let item of value" style="margin-bottom:5px;">{{item.price | number:0}} VNĐ</p>
+                                <p *ngIf="value && value.length > 1" style="margin-bottom:5px;">
+                                    <b>{{getSumPrice(value) | number:0}} VNĐ</b>
+                                </p> -->
+                            </ng-template>
+                        </ngx-datatable-column>
+                        <ngx-datatable-column name="Hành động" sortable="true" prop="id">
+                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                {{column.name}}
+                            </ng-template>
+                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                <button class="btn btn-sm btn-info" (click)="paymentVoucher(row)">Nộp tiền</button>
+                            </ng-template>
+                        </ngx-datatable-column>
+                    </ngx-datatable>
+
+                    <!-- Modal Thông tin bệnh nhân -->
+                    <bs-modal #detailpatients>
+                        <bs-modal-body>
+                            <div class="container" style="padding: 10px 25px;width:100%;">
+                                <h2>Thông tin bệnh nhân</h2>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Họ tên</label>
+                                            <p>{{obj_edit.fullName}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Mã bệnh nhân</label>
+                                            <p>{{obj_edit.patientCode}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Số CMT</label>
+                                            <p>{{obj_edit.idno}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Năm sinh</label>
+                                            <p>{{obj_edit.birthday}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Giới tính</label>
+                                            <p>{{obj_edit.gender == 0 ? 'Nam' : 'Nữ'}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Địa chỉ</label>
+                                            <p>{{obj_edit.address}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Số tiền còn trong tài khoản</label>
+                                            <h4>
+                                                <b>0 đ</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Số tiền còn trong tài khoản</label>
+                                            <h4>
+                                                <b>0 đ</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3">
+                                        <div class="form-group">
+                                            <label class="control-label">Số tiền còn cần thanh toán</label>
+                                            <h4>
+                                                <b>{{obj_edit.money | number:0}} đ</b>
+                                            </h4>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-3" style="padding: 30px 0;">
+                                        <button class="btn btn-sm btn-warning" style="padding: 5px 10px;" disabled="disabled">Rút tiền
+                                            <i class="material-icons">attach_money</i>
+                                        </button>
+                                        <button class="btn btn-sm btn-primary" style="padding: 5px 10px;">Nạp tiền
+                                            <i class="material-icons">attach_money</i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </bs-modal-body>
+                    </bs-modal>
+                    <!-- Modal Thông tin phiếu thu -->
+                    <bs-modal #paymentvoucher>
+                        <bs-modal-body>
+                            <div class="container" style="padding: 10px 25px;width:100%;">
+                                <div class="col-sm-12">
+                                    <h2 class="col-sm-8" style="margin-top:0;">Thông tin phiếu thu</h2>
+                                    <div class="col-sm-4 text-right">
+                                        <button class="btn btn-primary" (click)="acceptpayment()">Thanh toán phiếu thu
+                                            <i class="material-icons">attach_money</i>
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Mã phiếu thu</label>
+                                            <p>{{obj_edit.code}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Họ tên</label>
+                                            <p>{{obj_edit.fullName}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Mã bệnh nhân</label>
+                                            <p>{{obj_edit.patientCode}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Số CMT</label>
+                                            <p>{{obj_edit.idno}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Năm sinh</label>
+                                            <p>{{obj_edit.birthday}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-sm-2">
+                                        <div class="form-group">
+                                            <label class="control-label">Giới tính</label>
+                                            <p>{{obj_edit.gender == 0 ? 'Nam' : 'Nữ'}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <ngx-datatable class="material" [rows]="list_dot_kham" [columnMode]="'force'" [headerHeight]="40" [footerHeight]="40" [rowHeight]="getRowHeight"
+                                        [limit]="5" style="width:100%">
+                                        <ngx-datatable-column name="Đợt khám" sortable="true" prop="dayOfExamination">
+                                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                                {{column.name}}
+                                            </ng-template>
+                                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                                {{value | date:'dd/MM/yyyy'}}
+                                            </ng-template>
+                                        </ngx-datatable-column>
+                                        <ngx-datatable-column name="Dịch vụ thanh toán" sortable="true" prop="serviceName">
+                                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                                {{column.name}}
+                                            </ng-template>
+                                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                                <p>{{value}}</p>
+                                            </ng-template>
+                                        </ngx-datatable-column>
+                                        <ngx-datatable-column name="Thành tiền" sortable="true" prop="money">
+                                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                                {{column.name}}
+                                            </ng-template>
+                                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                                <p>{{value|number:0}} VNĐ</p>
+                                                <!-- <p *ngFor="let item of value" style="margin-bottom:5px;">{{item.price | number:0}} VNĐ</p>
+                                                <p *ngIf="value && value.length > 1" style="margin-bottom:5px;">
+                                                    <b>{{getSumPrice(value) | number:0}} VNĐ</b>
+                                                </p> -->
+                                            </ng-template>
+                                        </ngx-datatable-column>
+                                        <!-- <ngx-datatable-column name="Hành động" sortable="true" prop="id">
+                                            <ng-template let-column="column" let-sort="sortFn" ngx-datatable-header-template>
+                                                {{column.name}}
+                                            </ng-template>
+                                            <ng-template let-row="row" let-value="value" ngx-datatable-cell-template>
+                                                <button class="btn btn-sm btn-info" (click)="paymentVoucher()">Nộp tiền</button>
+                                            </ng-template>
+                                        </ngx-datatable-column> -->
+                                    </ngx-datatable>
+                                </div>
+                            </div>
+                        </bs-modal-body>
+                    </bs-modal>
+
+                    <bs-modal #finishpayment>
+                        <bs-modal-body>
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="col-sm-9" style="padding: 0 !important;">
+                                        <input type="number" [(ngModel)]="obj_edit.money" style=" width: 100%;padding: 8px; border: 1px solid #ddd;" />
+                                    </div>
+                                    <div class="col-sm-3" style="padding: 0 !important;">
+                                        <button style="margin:0;" class="btn btn-primary" (click)="finishPayment()">THANH TOÁN</button>
+                                    </div>
+                                </div>
+                                <!-- <div class="col-sm-12">
+                                    <div class="col-sm-6">
+                                        <div class="checkbox">
+                                            <label>
+                                                <input type="checkbox" name="optionsCheckboxes">
+                                                <b style="color:black;">Giảm giá chiết khấu</b>
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-sm-12">
+                                    <div class="col-sm-2">
+                                        <input type="number" style=" width: 100%;padding: 8px; border: 1px solid #ddd;" />
+                                    </div>
+                                    <div class="col-sm-10">
+                                        <input placeholder="Lý do giảm giá chiết khấu" style=" width: 100%;padding: 8px;    border: 1px solid #ddd;" />
+                                    </div>
+                                </div> -->
+                            </div>
+                        </bs-modal-body>
+                    </bs-modal>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
